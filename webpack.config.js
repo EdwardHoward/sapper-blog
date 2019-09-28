@@ -13,12 +13,7 @@ const mainFields = ['svelte', 'module', 'browser', 'main'];
 module.exports = {
 	client: {
 		entry: config.client.entry(),
-		output: {
-         path: path.resolve(__dirname, '__sapper__/export/blog/client'),
-         filename: '[hash]/[name].js',
-         chunkFilename: '[hash]/[name].[id].js',
-         publicPath: `/blog/client/`
-      },
+		output: config.client.output(),
 		resolve: { alias, extensions, mainFields },
 		module: {
 			rules: [
