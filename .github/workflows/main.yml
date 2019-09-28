@@ -16,7 +16,7 @@ jobs:
         npm run export
     - uses: jakejarvis/s3-sync-action@master
       with:
-        args: --acl public-read --follow-symlinks --delete
+        args: --acl public-read --follow-symlinks
       env:
         SOURCE_DIR: './__sapper__/export'
         AWS_REGION: 'us-east-1'
