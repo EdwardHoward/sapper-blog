@@ -43,6 +43,7 @@
       position: absolute;
       left: -1.2rem;
       color: #909090;
+      line-height: 1.4rem;
    }
 </style>
 
