@@ -4,12 +4,12 @@ const matter = require('gray-matter');
 const marked = require('marked');
 
 const cwd = process.cwd()
-const posts = fs.readdirSync(path.join(cwd, 'src/routes/posts/'))
+const posts = fs.readdirSync(path.join(cwd, 'posts/'))
    .filter(filename => /\.md$/.test(filename))
    .map(filename => {
-      const file = fs.readFileSync(`${path.join(cwd, 'src/routes/posts/')}${filename}`);
+      const file = fs.readFileSync(`${path.join(cwd, 'posts/')}${filename}`);
       const { data, content: rawContent } = matter(file);
-      const { title, date } = data;
+      const { title, date, subtitle } = data;
 
       const slug = filename.split('.')[0];
 
@@ -17,6 +17,7 @@ const posts = fs.readdirSync(path.join(cwd, 'src/routes/posts/'))
 
       return {
          title,
+         subtitle,
          date,
          slug,
          html
