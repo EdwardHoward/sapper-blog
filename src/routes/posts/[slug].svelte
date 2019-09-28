@@ -21,6 +21,7 @@
 <style>
    .content {
       margin-top: 1rem;
+      overflow: hidden;
    }
 
    .content :global(h2) {
