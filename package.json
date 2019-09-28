@@ -1,7 +1,7 @@
 {
-  "name": "TODO",
-  "description": "TODO",
-  "version": "0.0.1",
+  "name": "Blog",
+  "description": "A Blog using Sapper",
+  "version": "0.5.0",
   "scripts": {
     "dev": "sapper dev",
     "build": "sapper build",
@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "compression": "^1.7.1",
+    "date-fns": "^2.4.1",
     "gray-matter": "^4.0.2",
     "ignore-loader": "^0.1.2",
     "marked": "^0.7.0",
