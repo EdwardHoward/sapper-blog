@@ -1,6 +1,6 @@
 ---
-title: Livestreaming with FFMPEG [WIP]
-subtitle: An expensive version of Twitch
+title: 'Livestreaming with FFMPEG [WIP]'
+subtitle: An expensive alternative to Twitch
 date: 2019-09-28T21:46:20.086Z
 ---
 
