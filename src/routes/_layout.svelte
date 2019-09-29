@@ -42,7 +42,7 @@
       content: '<';
       position: absolute;
       left: -1.2rem;
-      color: #909090;
+      color: #6f6f6f;
       line-height: 1.4rem;
    }
 </style>

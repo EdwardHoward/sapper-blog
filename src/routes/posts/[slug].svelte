@@ -55,7 +55,7 @@
    }
 
    .date {
-      color: #909090;
+      color: #6f6f6f;
    }
 </style>
 
