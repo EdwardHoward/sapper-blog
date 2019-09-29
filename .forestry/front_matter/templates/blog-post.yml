@@ -12,3 +12,5 @@ fields:
   name: date
   label: date
   default: now
+pages:
+- posts/post-from-forestry.md
