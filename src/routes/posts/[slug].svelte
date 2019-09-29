@@ -50,6 +50,17 @@
       margin: 0 0 0.5em 0;
    }
 
+   .content :global(img) {
+      max-width: 100%;
+      display: block;
+      margin: 0 auto;
+   }
+   
+   .content :global(img + em){
+      display: block;
+      text-align: center;
+   }
+
    .post {
       padding: 0 1.5rem;
    }
