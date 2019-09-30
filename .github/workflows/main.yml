@@ -1,4 +1,4 @@
-name: Sync Bucket
+name: Build and Deploy to S3
 on: 
   push:
     branches:
@@ -17,20 +17,21 @@ jobs:
       run: |
         npm install
         npm run export
-    - uses: jakejarvis/s3-sync-action@master
+    - uses: edwardhoward/s3-sync-action@master
       with:
         args: --acl public-read --follow-symlinks --size-only --delete --exclude 'uploads/*'
       env:
-        SOURCE_DIR: './__sapper__/export/blog'
-        AWS_REGION: 'us-east-1'
-        AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}/${{secrets.AWS_DIST}}
+        SOURCE_DIR: ./__sapper__/export/blog
+        DEST_DIR: blog
+        AWS_REGION: us-east-1
+        AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     - name: invalidate
       uses: chetan/invalidate-cloudfront-action@master
       env:
         DISTRIBUTION: ${{ secrets.DISTRIBUTION }}
-        PATHS: '/blog/*'
+        PATHS: /blog/*
         AWS_REGION: 'us-east-1'
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
