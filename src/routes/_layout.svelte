@@ -9,7 +9,13 @@
       background-color: white;
       margin: 0 auto;
       box-sizing: border-box;
-      padding: calc(50px + 2rem) 0;
+      padding: 50px 0;
+   }
+
+   @media(min-width: 769px){
+      main{
+         padding: calc(50px + 1rem) 0;
+      }
    }
 
    header {
@@ -39,9 +45,9 @@
    }
 
    .not-home:before {
-      content: '<';
+      content: '«';
       position: absolute;
-      left: -1.2rem;
+      left: -1rem;
       color: #6f6f6f;
       line-height: 1.4rem;
    }

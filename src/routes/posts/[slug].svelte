@@ -14,7 +14,7 @@
 </script>
 
 <script>
-   import { formatDistanceStrict } from 'date-fns';
+   import PostComponent from '../../components/post';
    export let post;
 </script>
 
@@ -55,18 +55,19 @@
       display: block;
       margin: 0 auto;
    }
-   
-   .content :global(img + em){
+
+   .content :global(img + em) {
       display: block;
       text-align: center;
    }
 
-   .post {
-      padding: 0 1.5rem;
+   header {
+      border-bottom: 1px solid #eaeaea;
+      padding-bottom: .5rem;
    }
 
-   .date {
-      color: #6f6f6f;
+   main {
+      padding: 0 1.5rem;
    }
 </style>
 
@@ -74,12 +75,13 @@
    <title>{post.title}</title>
 </svelte:head>
 
-<div class="post">
-   <h1>{post.title}</h1>
-   <h2>{post.subtitle}</h2>
-   <div class="date">Edward Howard - {formatDistanceStrict(new Date(post.date), Date.now())} ago</div>
-   <hr />
-   <div class='content'>
+<PostComponent post={post} let:date={date}>
+   <header slot="header">
+      <h1>{post.title}</h1>
+      <h2>{post.subtitle}</h2>
+      <div class="date">Edward Howard - {date}</div>
+   </header>
+   <main class="content" slot="content">
       {@html post.html}
-   </div>
-</div>
+   </main>
+</PostComponent>
