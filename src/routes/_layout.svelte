@@ -9,13 +9,7 @@
       background-color: white;
       margin: 0 auto;
       box-sizing: border-box;
-      padding: 50px 0;
-   }
-
-   @media(min-width: 769px){
-      main{
-         padding: calc(50px + 1rem) 0;
-      }
+      padding: calc(50px + 1rem) 0;
    }
 
    header {
