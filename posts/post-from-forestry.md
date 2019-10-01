@@ -4,4 +4,4 @@ title: Post from Forestry
 subtitle: CMS
 
 ---
-![](/blog/uploads/cat.jpg) _This is a cool cat_
+![](/blog/uploads/cat.jpg) _This is a cat_
