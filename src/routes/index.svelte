@@ -7,14 +7,13 @@
 </script>
 
 <script>
-   import { formatDistanceStrict } from 'date-fns';
    import PostList from '../components/postlist'
 
    export let posts;
 </script>
 
 <svelte:head>
-   <title>Blog</title>
+   <title>Edward Howard's Blog</title>
 </svelte:head>
 
-<PostList posts={posts} />
+<PostList {posts} />

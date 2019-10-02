@@ -49,7 +49,7 @@
 
 <header>
    <div class="home">
-      <a href="/blog" title="home">
+      <a href="/blog" title="Back to Posts">
          <h1 class:not-home={segment}>Edward Howard</h1>
       </a>
    </div>

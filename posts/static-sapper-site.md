@@ -2,7 +2,7 @@
 title: Building a static website with Sapper [WIP]
 subtitle: How I made this blog
 date: 2019-09-28T07:53:46.173+00:00
-
+tags: ['sapper', 'svelte', foresty.io']
 ---
 ## Sapper + Svelte
 
