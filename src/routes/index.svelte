@@ -13,7 +13,7 @@
 </script>
 
 <svelte:head>
-   <title>Edward Howard's Blog</title>
+   <title>Edward's Blog</title>
 </svelte:head>
 
 <PostList {posts} />
