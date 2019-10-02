@@ -15,7 +15,14 @@
 
 <script>
    import PostComponent from '../../components/post';
+   import { onMount } from 'svelte';
+
    export let post;
+
+   let _window;
+   onMount(() => {
+      _window = window;
+   });
 
    const { title, subtitle, html } = post;
 </script>
@@ -77,7 +84,9 @@
    <meta name="description" content={`${title} - ${subtitle}`}>
    <meta property="og:title" content={title} />
    <meta property="og:type" content="article" />
-   <meta property="og:url" content={window.location.href} />
+   {#if _window}
+      <meta property="og:url" content={_window.location.href} />
+   {/if}
    {#if post.tags}
       <meta name="keywords" content={post.tags.join(',')}>
    {/if}
