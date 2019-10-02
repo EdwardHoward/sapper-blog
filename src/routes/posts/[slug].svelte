@@ -3,19 +3,28 @@
       // the `slug` parameter is available because
       // this file is called [slug].svelte
       const res = await this.fetch(`posts/${params.slug}.json`);
-      const data = await res.json();
+      const post = await res.json();
 
       if (res.status === 200) {
-         return { post: data };
+         return { post };
       } else {
-         this.error(res.status, data.message);
+         this.error(res.status, post.message);
       }
    }
 </script>
 
 <script>
    import PostComponent from '../../components/post';
+   import { onMount } from 'svelte';
+
    export let post;
+
+   let _window;
+   onMount(() => {
+      _window = window;
+   });
+
+   const { title, subtitle, html } = post;
 </script>
 
 <style>
@@ -72,16 +81,25 @@
 </style>
 
 <svelte:head>
-   <title>{post.title}</title>
+   <meta name="description" content={`${title} - ${subtitle}`}>
+   <meta property="og:title" content={title} />
+   <meta property="og:type" content="article" />
+   {#if _window}
+      <meta property="og:url" content={_window.location.href} />
+   {/if}
+   {#if post.tags}
+      <meta name="keywords" content={post.tags.join(',')}>
+   {/if}
+   <title>{title}</title>
 </svelte:head>
 
-<PostComponent post={post} let:date={date}>
+<PostComponent {post} let:date={date}>
    <header slot="header">
-      <h1>{post.title}</h1>
-      <h2>{post.subtitle}</h2>
+      <h1>{title}</h1>
+      <h2>{subtitle}</h2>
       <div class="date">Edward Howard - {date}</div>
    </header>
    <main class="content" slot="content">
-      {@html post.html}
+      {@html html}
    </main>
 </PostComponent>
