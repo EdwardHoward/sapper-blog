@@ -1,6 +1,17 @@
 const fs = require('fs');
 const matter = require('gray-matter');
 const marked = require('marked');
+const hljs = require('highlight.js');
+
+marked.setOptions({
+   highlight: function(code, lang){ 
+      if(lang){
+         return hljs.highlight(lang, code).value;
+      }else{
+         return code;
+      }
+   }
+});
 
 module.exports = function getMarkdownInDirectory(path) {
    return fs.readdirSync(path)
