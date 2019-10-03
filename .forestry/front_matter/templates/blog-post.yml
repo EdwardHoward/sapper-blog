@@ -13,4 +13,5 @@ fields:
   label: date
   default: now
 pages:
+- posts/random-code.md
 - posts/post-from-forestry.md
