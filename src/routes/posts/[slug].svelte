@@ -78,6 +78,10 @@
    main {
       padding: 0 1.5rem;
    }
+
+   .image{
+      margin-bottom: 1rem;
+   }
 </style>
 
 <svelte:head>
@@ -100,6 +104,12 @@
       <div class="date">Edward Howard - {date}</div>
    </header>
    <main class="content" slot="content">
+      {#if post.image}
+         <div class="image">
+            <img src={post.image} alt={post.imageCaption} />
+            <em>{post.imageCaption}</em>
+         </div>
+      {/if}
       {@html html}
    </main>
 </PostComponent>

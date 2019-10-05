@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const config = require('sapper/config/webpack.js');
 const pkg = require('./package.json');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
@@ -25,7 +26,8 @@ module.exports = {
 					use: {
 						loader: 'svelte-loader',
 						options: {
-							dev,
+                     dev,
+                     emitCss: true,
 							hydratable: true,
 							hotReload: false // pending https://github.com/sveltejs/svelte/issues/2377
 						}
@@ -34,7 +36,19 @@ module.exports = {
             {
                test: /\.md$/,
                loader: 'ignore-loader'
-            }
+            },
+            {
+               test: /\.css$/,
+               use: [
+                  {
+                     loader: MiniCssExtractPlugin.loader,
+                     options: {
+                        hmr: dev
+                     }
+                  },
+                  'css-loader'
+               ]
+             }
 			]
 		},
 		mode,
@@ -44,7 +58,12 @@ module.exports = {
 			new webpack.DefinePlugin({
 				'process.browser': true,
 				'process.env.NODE_ENV': JSON.stringify(mode)
-			}),
+         }),
+         new MiniCssExtractPlugin({
+            filename: '[name].css',
+            chunkFilename: '[id].css',
+            ignoreOrder: false
+         })
 		].filter(Boolean),
 		devtool: dev && 'inline-source-map'
 	},
@@ -70,7 +89,7 @@ module.exports = {
 					}
 				},
             {
-               test: /\.md$/,
+               test: /\.[md]$/,
                loader: 'ignore-loader'
             }
 			]
@@ -80,7 +99,6 @@ module.exports = {
 			hints: false // it doesn't matter if server.js is large
 		}
 	},
-
 	serviceworker: {
 		entry: config.serviceworker.entry(),
 		output: config.serviceworker.output(),
