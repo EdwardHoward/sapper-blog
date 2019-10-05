@@ -11,7 +11,8 @@
 
    article :global(header){
       border-bottom: 1px solid #eaeaea;
-      padding: 1rem 1.5rem;
+      padding: .5rem 1.5rem;
+      flex: 1;
    }
 </style>
 
