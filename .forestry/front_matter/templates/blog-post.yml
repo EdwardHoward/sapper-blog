@@ -12,6 +12,18 @@ fields:
   name: date
   label: date
   default: now
+- name: image
+  type: file
+  config:
+    maxSize: 250
+  label: Image
+  description: The top image for the article
+- name: imageCaption
+  type: text
+  config:
+    required: false
+  description: The caption for the image
+  label: Image Caption
 pages:
 - posts/random-code.md
 - posts/post-from-forestry.md
