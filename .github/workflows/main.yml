@@ -19,7 +19,7 @@ jobs:
         npm run export
     - uses: edwardhoward/s3-sync-action@master
       with:
-        args: --acl public-read --follow-symlinks --size-only --delete --exclude 'uploads/*'
+        args: --acl public-read --follow-symlinks --size-only --delete --exclude 'uploads/*' --exclude 'thumbnails/*'
       env:
         SOURCE_DIR: ./__sapper__/export/blog
         DEST_DIR: blog
