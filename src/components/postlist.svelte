@@ -1,26 +1,13 @@
 <script>
    import { formatDistanceStrict } from 'date-fns';
    import PostComponent from './post';
+   import Thumbnail from './thumbnail';
 
    export let posts;
 </script>
 <style>
    a:hover {
       text-decoration: underline;
-   }
-
-   .image {
-      width: 30%;
-      max-width: 200px;
-      min-width: 100px;
-      margin-left: .5rem;
-      border: 1px solid #eaeaea;
-      display: flex;
-   }
-
-   img {
-      width: 100%;
-      height: 100%;
    }
 
    .flex-1 {
@@ -50,9 +37,7 @@
                </div>
             </div>
             {#if post.image}
-               <div class="image">
-                  <img alt={post.imageAlt} src={post.image} />
-               </div>
+               <Thumbnail post={post} />
             {/if}
          </header>
       </PostComponent>
