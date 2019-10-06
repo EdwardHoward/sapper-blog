@@ -21,6 +21,7 @@
 
    img {
       width: 100%;
+      height: 100%;
    }
 
    .flex-1 {
@@ -33,7 +34,7 @@
       align-items: center;
    }
 
-   .align-start{
+   .align-start {
       align-self: start;
    }
 </style>
@@ -55,7 +56,6 @@
                </div>
             {/if}
          </header>
-
       </PostComponent>
    {/each}
 </div>
