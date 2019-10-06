@@ -10,11 +10,10 @@
    }
 
    .image {
-      width: 35%;
+      width: 30%;
       max-width: 200px;
       min-width: 100px;
       margin-left: .5rem;
-
       border: 1px solid #eaeaea;
       display: flex;
    }
