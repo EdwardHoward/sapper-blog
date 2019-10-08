@@ -5,7 +5,9 @@ date: 2019-09-28T07:53:46.173+00:00
 tags:
 - sapper
 - svelte
-- foresty.io'
+- forestry.io
+- s3
+- lambda
 
 ---
 ## Sapper + Svelte
@@ -36,11 +38,16 @@ tags:
 * cloudfront
   * need full s3 url with region
 * serving from non-root path
-
+    
 ## Forestry
 
 * static admin
 * s3 image hosting
+
+## Generate Thumbnails
+* s3 event
+* lambda function
+	* sharp
 
 ## GitHub actions
 
